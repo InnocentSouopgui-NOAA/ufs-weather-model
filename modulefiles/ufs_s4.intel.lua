@@ -2,8 +2,6 @@ help([[
 loads UFS Model prerequisites for S4/Intel
 ]])
 
--- set the path to ecflow
-prepend_path("MODULEPATH", "/data/prod/jedi/rocky8/modulefiles")
 
 prepend_path("MODULEPATH", "/data/prod/jedi/spack-stack/spack-stack-1.6.0/envs/upp-addon-ue-intel-2021.10.0/install/modulefiles/Core")
 
@@ -18,6 +16,11 @@ load(pathJoin("stack-python", stack_python_ver))
 
 cmake_ver=os.getenv("cmake_ver") or "3.23.1"
 load(pathJoin("cmake", cmake_ver))
+
+--
+-- St fms version for s4
+--
+setenv("fms_ver", "2023.04")
 
 load("ufs_common")
 
