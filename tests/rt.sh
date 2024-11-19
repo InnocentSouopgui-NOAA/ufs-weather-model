@@ -1126,8 +1126,6 @@ if [[ ${ECFLOW} == true ]]; then
   # Reduce maximum number of compile jobs on jet and s4 because of licensing issues
   if [[ ${MACHINE_ID} = jet ]]; then
     MAX_BUILDS=5
-  elif [[ ${MACHINE_ID} = s4 ]]; then
-    MAX_BUILDS=1
   fi
 
   ECFLOW_RUN=${PATHRT}/ecflow_run
