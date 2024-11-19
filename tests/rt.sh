@@ -852,17 +852,14 @@ case ${MACHINE_ID} in
   s4)
     echo "rt.sh: Setting up s4..."
     if [[ "${ROCOTO:-false}" == true ]] ; then
-      module load rocoto/1.3.2
+      module load rocoto/1.3.7
       ROCOTO_SCHEDULER=slurm
-    fi
-    if [[ "${ECFLOW:-false}" == true ]] ; then
-      module load ecflow/5.6.0
     fi
     module load miniconda/3.8-s4
 
-    module use /data/prod/jedi/spack-stack/modulefiles
+    module use /data/prod/jedi/rocky8/modulefiles
     if [[ "${ECFLOW:-false}" == true ]] ; then
-      module load ecflow/5.8.4
+      module load ecflow/5.13.4
       ECF_HOST=$(hostname)
       ECF_PORT="$(( $(id -u) + 1500 ))"
       export ECF_PORT ECF_HOST
