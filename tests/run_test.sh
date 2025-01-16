@@ -108,9 +108,9 @@ case ${MACHINE_ID} in
     module load nccmp
     ;;
   s4)
-    module use /data/prod/jedi/spack-stack/spack-stack-1.4.1/envs/ufs-pio-2.5.10/install/modulefiles/Core
-    module load stack-intel/2021.5.0 stack-intel-oneapi-mpi/2021.5.0
-    module load miniconda/3.9.12
+    module use /data/prod/jedi/spack-stack/spack-stack-1.6.0/envs/fms-2024.01-ue-intel-2021.10.0/install/modulefiles/Core
+    module load stack-intel/2021.10.0 stack-intel-oneapi-mpi/2021.10.0
+    module load miniconda/3.8-s4
     module load nccmp/1.9.0.1
     ;;
   stampede|expanse|noaacloud)
