@@ -435,7 +435,11 @@ else
 fi
 
 export WLCLK_dflt=30
-
+# extend WLCLK for s4, needed for cpld_debug_gfsv17 and cpld_debug_pdlib_p8
+if [[ ${MACHINE_ID} = s4 ]]; then
+  export WLCLK_dflt=45
+fi
+ 
 export WLCLK=${WLCLK_dflt}
 export CMP_DATAONLY=false
 
