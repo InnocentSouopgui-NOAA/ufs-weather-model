@@ -882,18 +882,18 @@ case ${MACHINE_ID} in
     ;;
   s4)
     echo "rt.sh: Setting up s4..."
+    module use /data/prod/jedi/rocky8/modulefiles
     if [[ "${ROCOTO:-false}" == true ]] ; then
-      module load rocoto/1.3.2
+      module load rocoto/1.3.7
       ROCOTO_SCHEDULER=slurm
     fi
     if [[ "${ECFLOW:-false}" == true ]] ; then
-      module load ecflow/5.6.0
+      module load ecflow/5.13.4
     fi
     module load miniconda/3.8-s4
 
-    module use /data/prod/jedi/spack-stack/modulefiles
     if [[ "${ECFLOW:-false}" == true ]] ; then
-      module load ecflow/5.8.4
+      module load ecflow/5.13.4
       ECF_HOST=$(hostname)
       ECF_PORT="$(( $(id -u) + 1500 ))"
       export ECF_PORT ECF_HOST
@@ -1157,8 +1157,6 @@ if [[ ${ECFLOW} == true ]]; then
   # Reduce maximum number of compile jobs on jet and s4 because of licensing issues
   if [[ ${MACHINE_ID} = jet ]]; then
     MAX_BUILDS=5
-  elif [[ ${MACHINE_ID} = s4 ]]; then
-    MAX_BUILDS=1
   fi
 
   ECFLOW_RUN=${PATHRT}/ecflow_run
