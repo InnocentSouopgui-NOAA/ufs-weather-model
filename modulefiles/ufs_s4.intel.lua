@@ -2,12 +2,15 @@ help([[
 loads UFS Model prerequisites for S4/Intel
 ]])
 
-prepend_path("MODULEPATH", "/data/prod/jedi/spack-stack/spack-stack-1.6.0/envs/upp-addon-env/install/modulefiles/Core")
+-- set the path to ecflow – ecflow/5.13.4
+prepend_path("MODULEPATH", "/data/prod/jedi/rocky8/modulefiles")
 
-stack_intel_ver=os.getenv("stack_intel_ver") or "2021.5.0"
+prepend_path("MODULEPATH", "/data/prod/jedi/spack-stack/spack-stack-1.6.0/envs/fms-2024.01-ue-intel-2021.10.0/install/modulefiles/Core")
+
+stack_intel_ver=os.getenv("stack_intel_ver") or "2021.10.0"
 load(pathJoin("stack-intel", stack_intel_ver))
 
-stack_impi_ver=os.getenv("stack_impi_ver") or "2021.5.0"
+stack_impi_ver=os.getenv("stack_impi_ver") or "2021.10.0"
 load(pathJoin("stack-intel-oneapi-mpi", stack_impi_ver))
 
 stack_python_ver=os.getenv("stack_python_ver") or "3.10.13"
